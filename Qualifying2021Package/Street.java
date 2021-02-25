@@ -1,22 +1,23 @@
 package Qualifying2021Package;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Street {
-    private string name;
+    private String name;
     private int startIntersection;
     private int endIntersection;
     private int timeToTravel;
-    private HashMap<Car, int> carsPresent = new HashMap<Car, int>();
+    private HashMap<Car, Integer> carsPresent = new HashMap<Car, Integer>();
 
-    public Street(string name, int startIntersection, int endIntersection, int timeToTravel) {
+    public Street(String name, int startIntersection, int endIntersection, int timeToTravel) {
         this.name = name;
         this.startIntersection = startIntersection;
         this.endIntersection = endIntersection;
         this.timeToTravel = timeToTravel;
     }
 
-    public string getName() {
+    public String getName() {
         return name;
     }
 
@@ -37,15 +38,25 @@ public class Street {
     }
 
     public void advanceCars() {
-        for (Map.Entry<Car, int> car : carsPresent.entrySet()) {
+        for (Map.Entry<Car, Integer> car : carsPresent.entrySet()) {
             Car key = car.getKey();
-            map.put(key, map.get(key) - 1);
+            carsPresent.put(key, carsPresent.get(key) - 1);
         }
     }
 
     public boolean carsReachedIntersection() {
-        for (Map.Entry<Car, int> car : carsPresent.entrySet()) {
-            car.value = car.value - 1;
+        return carsPresent.containsValue(0);
+    }
+
+    public boolean getCarAtIntersection() {
+        for (Map.Entry<Car, Integer> car : carsPresent.entrySet()) {
+            if (car.getValue() = 0) {
+                Car car2 = car2.getKey();
+
+                carsPresent.remove(car2);
+
+                return car2.getKey();
+            }
         }
     }
 }
