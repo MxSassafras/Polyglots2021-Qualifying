@@ -21,11 +21,11 @@ public class Program {
     }
 
     public static void Calculation() {
-        Collections.sort(pizzas, new Comparator<Pizza>() {
-            @Override public int compare(Pizza p1, Pizza p2) {
-                return p2.getIngredients().size() - p1.getIngredients().size();
-            }
-        });
+//        Collections.sort(pizzas, new Comparator<Pizza>() {
+//            @Override public int compare(Pizza p1, Pizza p2) {
+//                return p2.getIngredients().size() - p1.getIngredients().size();
+//            }
+//        });
     }
 
     private static String BuildOutputString() {
@@ -89,8 +89,30 @@ public class Program {
         }
     }
 
+    private static string CreateFileName(String name) {
+        int count = 1;
+        boolean exists;
+
+        do {
+            stringCount = String.valueOf(count);
+
+            if (stringCount.length() = 1) {
+                stringCount = "0" + stringCount;
+            }
+
+            File tempFile = new File("OutputFiles\\" + name + stringCount + ".txt");
+            exists = tempFile.exists();
+
+            if (exists) {
+                count += 1;
+            }
+        } while (exists);
+
+        return "OutputFiles\\" + name + stringCount + ".txt";
+    }
+
     private static void WriteOutput(String name, String str) {
-        String outputPath = "OutputFiles\\" + name + ".txt";
+        CreateFileName(name);
 
         try {
             System.out.println(outputPath);
