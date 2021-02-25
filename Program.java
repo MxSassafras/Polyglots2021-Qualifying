@@ -13,6 +13,12 @@ import java.util.Collections;
 
 public class Program {
     private static int stopSignCount = 1;
+    private static int arterial = 3;
+    private static int collector = 2;
+    private static int local = 1;
+
+
+
     private static boolean flipOrder = false;
 
     private static int duration;
@@ -36,11 +42,32 @@ public class Program {
     }
 
     public static void Calculation() {
-//        Collections.sort(pizzas, new Comparator<Pizza>() {
-//            @Override public int compare(Pizza p1, Pizza p2) {
-//                return p2.getIngredients().size() - p1.getIngredients().size();
-//            }
-//        });
+        Collections.sort(inputStreets, new Comparator<Street>() {
+            @Override public int compare(Street s1, Street s2) {
+                return s2.getTimesUsed() - s1.getTimesUsed();
+            }
+        });
+
+        for (int i = inputStreets.size(); i >= 0; i--) {
+            if (inputStreets.get(i).getTimesUsed() == 0) {
+                inputStreets.remove(i);
+            }
+        }
+
+        int third = inputStreets.size() / 3;
+
+        for (int i = 0; i < third; i++) {
+            inputStreets.get(i).setBusy(arterial);
+        }
+
+        for (int i = third; i < third * 2; i++) {
+            inputStreets.get(i).setBusy(collector);
+        }
+
+        for (int i = third * 2; i < inputStreets.size(); i++) {
+            inputStreets.get(i).setBusy(local);
+        }
+
         for (int i = 0; i < intersections.size(); i++) {
             for (int j = 0; j < intersections.get(i).size(); j++) {
                 String streetName = intersections.get(i).get(j);
@@ -71,8 +98,17 @@ public class Program {
                 int intersectionStreetCount = usedIntersections.get(i).size();
                 outputString += String.valueOf(intersectionStreetCount) + "\n";
 
+                Collections.sort(usedIntersections.get(i));
+
+                if (!flipOrder) {
+                    Collections.reverse(usedIntersections.get(i));
+                }
+
                 for (int j = 0; j < intersectionStreetCount; j++) {
-                    outputString += usedIntersections.get(i).get(j) + " " + String.valueOf(stopSignCount);
+                    String streetName = usedIntersections.get(i).get(j);
+                    Street street = GetStreet(streetName);
+
+                    outputString += usedIntersections.get(i).get(j) + " " + String.valueOf(street.getBusy() * stopSignCount);
                     if (j < intersectionStreetCount) {
                         outputString += "\n";
                     }
@@ -99,6 +135,16 @@ public class Program {
 //        }
 
         return outputString;
+    }
+
+    private static Street GetStreet(String streetName) {
+        for (int i = 0; i < inputStreets.size(); i++) {
+            if (inputStreets.get(i).getName() == streetName) {
+                return inputStreets.get(i);
+            }
+        }
+
+        return new Street("", 0, 0, 0);
     }
 
     private static void ReadInput(String name) {
@@ -134,8 +180,6 @@ public class Program {
                 Street street = new Street(streetName, startingIntersection, endingIntersection, timeToTravel);
 
                 intersections.get(endingIntersection).add(streetName);
-
-                //inputStreets.add(street);
             }
 
             for (int i = 0; i < numberOfCars; i++) {
@@ -149,6 +193,8 @@ public class Program {
                     String streetName = data.split(" ")[j];
                     usedStreets.put(streetName, "");
                     path.add(streetName);
+
+                    IncreaseStreetUse(streetName);
                 }
 
                 Car car = new Car(path);
@@ -159,6 +205,15 @@ public class Program {
         } catch (FileNotFoundException e) {
             System.out.println("An error occured.");
             e.printStackTrace();
+        }
+    }
+
+    private static void IncreaseStreetUse(String streetName) {
+        for (int i = 0; i < inputStreets.size(); i++) {
+            if (inputStreets.get(i).getName() == streetName) {
+                inputStreets.get(i).addUse();
+                return;
+            }
         }
     }
 

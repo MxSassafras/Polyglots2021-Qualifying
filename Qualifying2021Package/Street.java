@@ -12,6 +12,9 @@ public class Street {
     private int timeToTravel;
     private HashMap<Car, Integer> carsPresent = new HashMap<Car, Integer>();
 
+    private int timesUsed = 0;
+    private int busy;
+
     public Street(String name, int startIntersection, int endIntersection, int timeToTravel) {
         this.name = name;
         this.startIntersection = startIntersection;
@@ -34,6 +37,18 @@ public class Street {
 
     public int getTimeToTravel() {
         return timeToTravel;
+    }
+
+    public int getTimesUsed() {
+        return timesUsed;
+    }
+
+    public int getBusy() {
+        return busy;
+    }
+
+    public void setBusy(int busy) {
+        this.busy = busy;
     }
 
     public void addCar(Car car) {
@@ -68,5 +83,9 @@ public class Street {
 
 //
         return carReturn;
+    }
+
+    public void addUse() {
+        this.timesUsed += 1;
     }
 }
