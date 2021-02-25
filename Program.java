@@ -13,6 +13,7 @@ import java.util.Collections;
 
 public class Program {
     private static int stopSignCount = 1;
+    private static boolean flipOrder = false;
 
     private static int duration;
     private static int numberOfIntersections;
@@ -71,7 +72,7 @@ public class Program {
                 outputString += String.valueOf(intersectionStreetCount) + "\n";
 
                 for (int j = 0; j < intersectionStreetCount; j++) {
-                    outputString += intersections.get(i).get(j) + " " + String.valueOf(stopSignCount);
+                    outputString += usedIntersections.get(i).get(j) + " " + String.valueOf(stopSignCount);
                     if (j < intersectionStreetCount) {
                         outputString += "\n";
                     }
