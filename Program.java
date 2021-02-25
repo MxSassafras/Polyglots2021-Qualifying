@@ -13,8 +13,8 @@ import java.util.Collections;
 
 public class Program {
     private static int stopSignCount = 1;
-    private static int arterial = 3;
-    private static int collector = 2;
+    private static int arterial = 1;
+    private static int collector = 1;
     private static int local = 1;
 
 
@@ -48,7 +48,7 @@ public class Program {
             }
         });
 
-        System.out.println(inputStreets.size());
+        //System.out.println(inputStreets.size());
 
         for (int i = inputStreets.size(); i < 0; i--) {
             if (inputStreets.get(i).getTimesUsed() == 0) {
@@ -56,23 +56,23 @@ public class Program {
             }
         }
 
-        int third = inputStreets.size() / 3;
+        int third = inputStreets.size() / 10;
 
-        System.out.println(third);
+        //System.out.println(third);
 
         for (int i = 0; i < third; i++) {
             inputStreets.get(i).setBusy(arterial);
-            System.out.println(inputStreets.get(i) + " " + String.valueOf(arterial));
+            //System.out.println(inputStreets.get(i) + " " + String.valueOf(arterial));
         }
 
-        for (int i = third; i < third * 2; i++) {
-            inputStreets.get(i).setBusy(collector);
-            System.out.println(inputStreets.get(i) + " " + String.valueOf(collector));
-        }
+//        for (int i = third; i < third * 2; i++) {
+//            inputStreets.get(i).setBusy(collector);
+//            //System.out.println(inputStreets.get(i) + " " + String.valueOf(collector));
+//        }
 
-        for (int i = third * 2; i < inputStreets.size(); i++) {
+        for (int i = third; i < inputStreets.size(); i++) {
             inputStreets.get(i).setBusy(local);
-            System.out.println(inputStreets.get(i) + " " + String.valueOf(local));
+            //System.out.println(inputStreets.get(i) + " " + String.valueOf(local));
         }
 
         for (int i = 0; i < intersections.size(); i++) {
