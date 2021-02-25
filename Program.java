@@ -50,7 +50,7 @@ public class Program {
 
             for (int j = 0; j < intersectionStreetCount; j++) {
                 outputString += intersections.get(i).get(j) + " 1";
-                if (j < intersectionStreetCount - 1) {
+                if (j < intersectionStreetCount) {
                     outputString += "\n";
                 }
             }
@@ -108,7 +108,7 @@ public class Program {
 
                 Street street = new Street(streetName, startingIntersection, endingIntersection, timeToTravel);
 
-                intersections.get(startingIntersection).add(streetName);
+                intersections.get(endingIntersection).add(streetName);
 
                 inputStreets.add(street);
             }
