@@ -13,8 +13,8 @@ import java.util.Collections;
 
 public class Program {
     private static int stopSignCount = 1;
-    private static int arterial = 3;
-    private static int collector = 2;
+    private static int arterial = 1;
+    private static int collector = 1;
     private static int local = 1;
 
     private static boolean flipOrder = true;
@@ -45,7 +45,6 @@ public class Program {
                 return s2.getTimesUsed() - s1.getTimesUsed();
             }
         });
-
         for (int i = inputStreets.size(); i < 0; i--) {
             if (inputStreets.get(i).getTimesUsed() == 0) {
                 inputStreets.remove(i);
@@ -62,7 +61,11 @@ public class Program {
             inputStreets.get(i).setBusy(collector);
         }
 
-        for (int i = third * 2; i < inputStreets.size(); i++) {
+        for (int i = 0; i < third; i++) {
+            inputStreets.get(i).setBusy(arterial);
+        }
+
+        for (int i = third; i < inputStreets.size(); i++) {
             inputStreets.get(i).setBusy(local);
         }
 
@@ -107,24 +110,6 @@ public class Program {
                 }
             }
         }
-
-//        int numberOfOrders = orders.size();
-//
-//        outputString += String.valueOf(numberOfOrders) + "\n";
-
-//        for (int i = 0; i < orders.size(); i++) {
-//            outputString += String.valueOf(orders.get(i).getTeamSize()) + " ";
-//            for (int j = 0; j < orders.get(i).getPizzas().size(); j++) {
-//                outputString += String.valueOf(orders.get(i).getPizzas().get(j).getId());
-//
-//                if (j < orders.get(i).getPizzas().size() - 1) {
-//                    outputString += " ";
-//                }
-//            }
-//            if (i < orders.size() - 1) {
-//                outputString += "\n";
-//            }
-//        }
 
         return outputString;
     }

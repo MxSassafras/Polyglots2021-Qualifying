@@ -2,12 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00574590-cb36-4c63-a91b-a03924c8a46e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Program$1.class" afterPath="$PROJECT_DIR$/Program$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Program.class" afterPath="$PROJECT_DIR$/Program.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Qualifying2021Package/Street.class" afterPath="$PROJECT_DIR$/Qualifying2021Package/Street.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/a03.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/a04.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/a05.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/a06.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/a07.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/a08.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/a09.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/a10.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/a11.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/a12.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/a13.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/a14.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/a15.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/b03.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/b04.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/b05.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/c04.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/e03.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/OutputFiles/f03.txt" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/OutputFiles/c03.txt" afterPath="$PROJECT_DIR$/OutputFiles/c02.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OutputFiles/a01.txt" afterPath="$PROJECT_DIR$/OutputFiles/a01.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OutputFiles/a02.txt" afterPath="$PROJECT_DIR$/OutputFiles/a02.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OutputFiles/b01.txt" afterPath="$PROJECT_DIR$/OutputFiles/b01.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OutputFiles/b02.txt" afterPath="$PROJECT_DIR$/OutputFiles/b02.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OutputFiles/c01.txt" afterPath="$PROJECT_DIR$/OutputFiles/c01.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OutputFiles/d01.txt" afterPath="$PROJECT_DIR$/OutputFiles/d01.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OutputFiles/d02.txt" afterPath="$PROJECT_DIR$/OutputFiles/d02.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OutputFiles/e01.txt" afterPath="$PROJECT_DIR$/OutputFiles/e01.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OutputFiles/e02.txt" afterPath="$PROJECT_DIR$/OutputFiles/e02.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OutputFiles/f01.txt" afterPath="$PROJECT_DIR$/OutputFiles/f01.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OutputFiles/f02.txt" afterPath="$PROJECT_DIR$/OutputFiles/f02.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Program.java" afterPath="$PROJECT_DIR$/Program.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Qualifying2021Package/Street.java" afterPath="$PROJECT_DIR$/Qualifying2021Package/Street.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,13 +48,13 @@
       <file leaf-file-name="Program.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Program.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="125" column="17" lean-forward="true" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
+            <state relative-caret-position="-1467">
+              <caret line="111" column="9" lean-forward="false" selection-start-line="111" selection-start-column="9" selection-end-line="111" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1563#1564#0" expanded="true" />
                 <element signature="e#1639#1640#0" expanded="true" />
-                <element signature="method#CreateFileName#0;class#Program#0" expanded="false" />
+                <marker date="1614297245936" expanded="false" signature="7319:7858" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -63,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/Qualifying2021Package/Intersection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+              <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
               <folding>
                 <element signature="e#343#344#0" expanded="true" />
                 <element signature="e#371#372#0" expanded="true" />
@@ -392,7 +418,7 @@
     <entry file="file://$PROJECT_DIR$/Qualifying2021Package/Intersection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
           <folding>
             <element signature="e#343#344#0" expanded="true" />
             <element signature="e#371#372#0" expanded="true" />
@@ -427,13 +453,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Program.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="125" column="17" lean-forward="true" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
+        <state relative-caret-position="-1467">
+          <caret line="111" column="9" lean-forward="false" selection-start-line="111" selection-start-column="9" selection-end-line="111" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1563#1564#0" expanded="true" />
             <element signature="e#1639#1640#0" expanded="true" />
-            <element signature="method#CreateFileName#0;class#Program#0" expanded="false" />
+            <marker date="1614297245936" expanded="false" signature="7319:7858" ph="{...}" />
           </folding>
         </state>
       </provider>
