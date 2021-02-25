@@ -15,6 +15,8 @@ public class Street {
     private int timesUsed = 0;
     private int busy = 0;
 
+    private int timesFirst = 0;
+
     public Street(String name, int startIntersection, int endIntersection, int timeToTravel) {
         this.name = name;
         this.startIntersection = startIntersection;
@@ -41,6 +43,10 @@ public class Street {
 
     public int getTimesUsed() {
         return timesUsed;
+    }
+
+    public int getTimesFirst() {
+        return timesFirst;
     }
 
     public int getBusy() {
@@ -87,5 +93,9 @@ public class Street {
 
     public void addUse() {
         this.timesUsed += 1;
+    }
+
+    public void addFirstUse() {
+        this.timesFirst += 1;
     }
 }

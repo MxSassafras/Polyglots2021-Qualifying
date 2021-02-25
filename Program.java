@@ -17,9 +17,7 @@ public class Program {
     private static int collector = 2;
     private static int local = 1;
 
-
-
-    private static boolean flipOrder = false;
+    private static boolean flipOrder = true;
 
     private static int duration;
     private static int numberOfIntersections;
@@ -48,31 +46,24 @@ public class Program {
             }
         });
 
-        System.out.println(inputStreets.size());
-
         for (int i = inputStreets.size(); i < 0; i--) {
             if (inputStreets.get(i).getTimesUsed() == 0) {
                 inputStreets.remove(i);
             }
         }
 
-        int third = inputStreets.size() / 3;
-
-        System.out.println(third);
+        int third = inputStreets.size() / 10;
 
         for (int i = 0; i < third; i++) {
             inputStreets.get(i).setBusy(arterial);
-            System.out.println(inputStreets.get(i) + " " + String.valueOf(arterial));
         }
 
         for (int i = third; i < third * 2; i++) {
             inputStreets.get(i).setBusy(collector);
-            System.out.println(inputStreets.get(i) + " " + String.valueOf(collector));
         }
 
         for (int i = third * 2; i < inputStreets.size(); i++) {
             inputStreets.get(i).setBusy(local);
-            System.out.println(inputStreets.get(i) + " " + String.valueOf(local));
         }
 
         for (int i = 0; i < intersections.size(); i++) {
@@ -105,17 +96,11 @@ public class Program {
                 int intersectionStreetCount = usedIntersections.get(i).size();
                 outputString += String.valueOf(intersectionStreetCount) + "\n";
 
-                Collections.sort(usedIntersections.get(i));
-
-                if (!flipOrder) {
-                    Collections.reverse(usedIntersections.get(i));
-                }
-
                 for (int j = 0; j < intersectionStreetCount; j++) {
                     String streetName = usedIntersections.get(i).get(j);
                     Street street = GetStreet(streetName);
 
-                    outputString += usedIntersections.get(i).get(j) + " " + String.valueOf(street.getBusy() * stopSignCount);
+                    outputString += street.getName() + " " + String.valueOf(street.getBusy() * stopSignCount);
                     if (j < intersectionStreetCount) {
                         outputString += "\n";
                     }
@@ -204,6 +189,10 @@ public class Program {
                     path.add(streetName);
 
                     IncreaseStreetUse(streetName);
+
+                    if (j == 1) {
+                        IncreaseFirstStreetUse(streetName);
+                    }
                 }
 
                 Car car = new Car(path);
@@ -221,6 +210,15 @@ public class Program {
         for (int i = 0; i < inputStreets.size(); i++) {
             if (inputStreets.get(i).getName() == streetName) {
                 inputStreets.get(i).addUse();
+                return;
+            }
+        }
+    }
+
+    private static void IncreaseFirstStreetUse(String streetName) {
+        for (int i = 0; i < inputStreets.size(); i++) {
+            if (inputStreets.get(i).getName() == streetName) {
+                inputStreets.get(i).addFirstUse();
                 return;
             }
         }
