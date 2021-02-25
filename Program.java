@@ -23,6 +23,7 @@ public class Program {
     private static ArrayList<Street> inputStreets = new ArrayList<Street>();
     private static ArrayList<Car> inputCars = new ArrayList<Car>();
     private static ArrayList<ArrayList<String>> intersections = new ArrayList<ArrayList<String>>();
+    private static ArrayList<ArrayList<String>> usedIntersections = new ArrayList<ArrayList<String>>();
     private static HashMap<String, String> usedStreets = new HashMap<String, String>();
 
     public static void main (String[] args) {
@@ -39,23 +40,41 @@ public class Program {
 //                return p2.getIngredients().size() - p1.getIngredients().size();
 //            }
 //        });
+        for (int i = 0; i < intersections.size(); i++) {
+            for (int j = 0; j < intersections.get(i).size(); j++) {
+                String streetName = intersections.get(i).get(j);
+                if (usedStreets.containsKey(streetName)) {
+                    usedIntersections.get(i).add(streetName);
+                }
+            }
+        }
     }
 
     private static String BuildOutputString() {
         String outputString = "";
 
-        outputString += String.valueOf(numberOfIntersections) + "\n";
+        int countUsedIntersections = 0;
 
-        for (int i = 0; i < intersections.size(); i++) {
-            outputString += String.valueOf(i) + "\n";
+        for (int i = 0; i < usedIntersections.size(); i++) {
+            if (!(usedIntersections.get(i).size() == 0)) {
+                countUsedIntersections += 1;
+            }
+        }
 
-            int intersectionStreetCount = intersections.get(i).size();
-            outputString += String.valueOf(intersectionStreetCount) + "\n";
+        outputString += String.valueOf(countUsedIntersections) + "\n";
 
-            for (int j = 0; j < intersectionStreetCount; j++) {
-                outputString += intersections.get(i).get(j) + " " + String.valueOf(stopSignCount);
-                if (j < intersectionStreetCount) {
-                    outputString += "\n";
+        for (int i = 0; i < usedIntersections.size(); i++) {
+            if (usedIntersections.get(i).size() > 0) {
+                outputString += String.valueOf(i) + "\n";
+
+                int intersectionStreetCount = usedIntersections.get(i).size();
+                outputString += String.valueOf(intersectionStreetCount) + "\n";
+
+                for (int j = 0; j < intersectionStreetCount; j++) {
+                    outputString += intersections.get(i).get(j) + " " + String.valueOf(stopSignCount);
+                    if (j < intersectionStreetCount) {
+                        outputString += "\n";
+                    }
                 }
             }
         }
@@ -100,6 +119,7 @@ public class Program {
 
             for (int i = 0; i < numberOfIntersections; i++) {
                 intersections.add(new ArrayList<String>());
+                usedIntersections.add(new ArrayList<String>());
             }
 
             for (int i = 0; i < numberOfStreets; i++) {
@@ -126,7 +146,7 @@ public class Program {
 
                 for (int j = 1; j <= numberOfStreetsToTravel; j++) {
                     String streetName = data.split(" ")[j];
-                    //usedStreets.put(streetName);
+                    usedStreets.put(streetName, "");
                     path.add(streetName);
                 }
 
