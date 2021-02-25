@@ -20,6 +20,7 @@ public class Street {
     }
 
     public String getName() {
+
         return name;
     }
 
