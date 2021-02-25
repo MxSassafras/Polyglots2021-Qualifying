@@ -2,6 +2,8 @@ package Qualifying2021Package;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
+
 
 public class Street {
     private String name;
@@ -48,15 +50,22 @@ public class Street {
         return carsPresent.containsValue(0);
     }
 
-    public boolean getCarAtIntersection() {
+    public Car getCarAtIntersection() {
+        ArrayList<String> pop = new ArrayList<String>();
+        pop.add("pop");
+        Car carReturn = new Car(pop);
         for (Map.Entry<Car, Integer> car : carsPresent.entrySet()) {
-            if (car.getValue() = 0) {
-                Car car2 = car2.getKey();
+            if (car.getValue() == 0) {
+                Car car2 = car.getKey();
 
                 carsPresent.remove(car2);
 
-                return car2.getKey();
+
+                return car2;
             }
         }
+
+//
+        return carReturn;
     }
 }
