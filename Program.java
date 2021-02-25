@@ -19,6 +19,7 @@ public class Program {
 
     private static ArrayList<Street> inputStreets = new ArrayList<Street>();
     private static ArrayList<Car> inputCars = new ArrayList<Car>();
+    private static ArrayList<ArrayList<String>> intersections = new ArrayList<ArrayList<String>>();
 
     public static void main (String[] args) {
         String fileName = args[0];
@@ -38,6 +39,22 @@ public class Program {
 
     private static String BuildOutputString() {
         String outputString = "";
+
+        outputString += String.valueOf(numberOfIntersections) + "\n";
+
+        for (int i = 0; i < intersections.size(); i++) {
+            outputString += String.valueOf(i) + "\n";
+
+            int intersectionStreetCount = intersections.get(i).size();
+            outputString += String.valueOf(intersectionStreetCount) + "\n";
+
+            for (int j = 0; j < intersectionStreetCount; j++) {
+                outputString += intersections.get(i).get(j) + " 1";
+                if (j < intersectionStreetCount - 1) {
+                    outputString += "\n";
+                }
+            }
+        }
 
 //        int numberOfOrders = orders.size();
 //
@@ -77,6 +94,10 @@ public class Program {
             numberOfCars = Integer.parseInt(firstRow.split(" ")[3]);
             bonusPoints = Integer.parseInt(firstRow.split(" ")[4]);
 
+            for (int i = 0; i < numberOfIntersections; i++) {
+                intersections.add(new ArrayList<String>());
+            }
+
             for (int i = 0; i < numberOfStreets; i++) {
                 String data = myReader.nextLine();
 
@@ -86,6 +107,8 @@ public class Program {
                 int timeToTravel = Integer.parseInt(data.split(" ")[3]);
 
                 Street street = new Street(streetName, startingIntersection, endingIntersection, timeToTravel);
+
+                intersections.get(startingIntersection).add(streetName);
 
                 inputStreets.add(street);
             }
