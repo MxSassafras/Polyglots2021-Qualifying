@@ -1,4 +1,4 @@
-import Qualifying2021Package.*;
+//import Qualifying2021Package.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,6 +11,11 @@ import java.util.Comparator;
 import java.util.Collections;
 
 public class Program {
+    private static int duration;
+    private static int numberOfIntersections;
+    private static int numberOfStreets;
+    private static int numberOfCars;
+    private static int bonusPoints;
 
     public static void main (String[] args) {
         String fileName = args[0];
@@ -31,9 +36,9 @@ public class Program {
     private static String BuildOutputString() {
         String outputString = "";
 
-        int numberOfOrders = orders.size();
-
-        outputString += String.valueOf(numberOfOrders) + "\n";
+//        int numberOfOrders = orders.size();
+//
+//        outputString += String.valueOf(numberOfOrders) + "\n";
 
 //        for (int i = 0; i < orders.size(); i++) {
 //            outputString += String.valueOf(orders.get(i).getTeamSize()) + " ";
@@ -62,6 +67,12 @@ public class Program {
 
             // Gather first line data
             String firstRow = myReader.nextLine();
+
+            duration = Integer.parseInt(firstRow.split(" ")[0]);
+            numberOfIntersections = Integer.parseInt(firstRow.split(" ")[1]);
+            numberOfStreets = Integer.parseInt(firstRow.split(" ")[2]);
+            numberOfCars = Integer.parseInt(firstRow.split(" ")[3]);
+            bonusPoints = Integer.parseInt(firstRow.split(" ")[4]);
 
 //            pizzaCount = Integer.parseInt(firstRow.split(" ")[0]);
 //            teamsOfTwo = Integer.parseInt(firstRow.split(" ")[1]);
