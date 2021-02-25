@@ -1,4 +1,4 @@
-//import Qualifying2021Package.*;
+import Qualifying2021Package.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,6 +16,9 @@ public class Program {
     private static int numberOfStreets;
     private static int numberOfCars;
     private static int bonusPoints;
+
+    private static ArrayList<Street> inputStreets = new ArrayList<Street>();
+    private static ArrayList<Car> inputCars = new ArrayList<Car>();
 
     public static void main (String[] args) {
         String fileName = args[0];
@@ -74,24 +77,34 @@ public class Program {
             numberOfCars = Integer.parseInt(firstRow.split(" ")[3]);
             bonusPoints = Integer.parseInt(firstRow.split(" ")[4]);
 
-//            pizzaCount = Integer.parseInt(firstRow.split(" ")[0]);
-//            teamsOfTwo = Integer.parseInt(firstRow.split(" ")[1]);
-//            teamsOfThree = Integer.parseInt(firstRow.split(" ")[2]);
-//            teamsOfFour = Integer.parseInt(firstRow.split(" ")[3]);
-//
-//            for (int i = 0; i < pizzaCount; i++) {
-//                Pizza pizza = new Pizza(i);
-//
-//                String data = myReader.nextLine();
-//
-//                int ingredientCount = Integer.parseInt(data.split(" ")[0]);
-//
-//                for (int j = 1; j <= ingredientCount; j++) {
-//                    pizza.addIngredient(data.split(" ")[j]);
-//                }
-//
-//                pizzas.add(pizza);
-//            }
+            for (int i = 0; i < numberOfStreets; i++) {
+                String data = myReader.nextLine();
+
+                int startingIntersection = Integer.parseInt(data.split(" ")[0]);
+                int endingIntersection = Integer.parseInt(data.split(" ")[1]);
+                String streetName = data.split(" ")[2];
+                int timeToTravel = Integer.parseInt(data.split(" ")[3]);
+
+                Street street = new Street(streetName, startingIntersection, endingIntersection, timeToTravel);
+
+                inputStreets.add(street);
+            }
+
+            for (int i = 0; i < numberOfCars; i++) {
+                String data = myReader.nextLine();
+
+                ArrayList<String> path = new ArrayList<String>();
+
+                int numberOfStreetsToTravel = Integer.parseInt(data.split(" ")[0]);
+
+                for (int j = 1; j <= numberOfStreetsToTravel; j++) {
+                    String streetName = data.split(" ")[j];
+                    path.add(streetName);
+                }
+
+                Car car = new Car(path);
+                inputCars.add(car);
+            }
 
             myReader.close();
         } catch (FileNotFoundException e) {

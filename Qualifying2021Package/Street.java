@@ -51,11 +51,11 @@ public class Street {
     public boolean getCarAtIntersection() {
         for (Map.Entry<Car, Integer> car : carsPresent.entrySet()) {
             if (car.getValue() = 0) {
-                Car car2 = car2.getKey();
+                Car car2 = car.getKey();
 
                 carsPresent.remove(car2);
 
-                return car2.getKey();
+                return car2;
             }
         }
     }
