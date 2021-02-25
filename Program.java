@@ -5,12 +5,15 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.*;
 import java.util.Comparator;
 import java.util.Collections;
 
 public class Program {
+    private static int stopSignCount = 1;
+
     private static int duration;
     private static int numberOfIntersections;
     private static int numberOfStreets;
@@ -20,6 +23,7 @@ public class Program {
     private static ArrayList<Street> inputStreets = new ArrayList<Street>();
     private static ArrayList<Car> inputCars = new ArrayList<Car>();
     private static ArrayList<ArrayList<String>> intersections = new ArrayList<ArrayList<String>>();
+    private static HashMap<String, String> usedStreets = new HashMap<String, String>();
 
     public static void main (String[] args) {
         String fileName = args[0];
@@ -49,7 +53,7 @@ public class Program {
             outputString += String.valueOf(intersectionStreetCount) + "\n";
 
             for (int j = 0; j < intersectionStreetCount; j++) {
-                outputString += intersections.get(i).get(j) + " 1";
+                outputString += intersections.get(i).get(j) + " " + String.valueOf(stopSignCount);
                 if (j < intersectionStreetCount) {
                     outputString += "\n";
                 }
@@ -110,7 +114,7 @@ public class Program {
 
                 intersections.get(endingIntersection).add(streetName);
 
-                inputStreets.add(street);
+                //inputStreets.add(street);
             }
 
             for (int i = 0; i < numberOfCars; i++) {
@@ -122,6 +126,7 @@ public class Program {
 
                 for (int j = 1; j <= numberOfStreetsToTravel; j++) {
                     String streetName = data.split(" ")[j];
+                    //usedStreets.put(streetName);
                     path.add(streetName);
                 }
 
