@@ -89,14 +89,16 @@ public class Program {
         }
     }
 
-    private static string CreateFileName(String name) {
+    private static String CreateFileName(String name) {
         int count = 1;
         boolean exists;
+
+        String stringCount;
 
         do {
             stringCount = String.valueOf(count);
 
-            if (stringCount.length() = 1) {
+            if (stringCount.length() == 1) {
                 stringCount = "0" + stringCount;
             }
 
@@ -112,26 +114,19 @@ public class Program {
     }
 
     private static void WriteOutput(String name, String str) {
-        CreateFileName(name);
+        String outputPath = CreateFileName(name);
 
         try {
-            System.out.println(outputPath);
             File file = new File(outputPath);
-
-            if (file.createNewFile()) {
-                System.out.println("File created: " + file.getName());
-            } else {
-                System.out.println("File already exists!");
-            }
 
             try(FileWriter writer = new FileWriter(outputPath)) {
                 writer.write(str);
                 writer.flush();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 System.out.println("An error occured.");
                 e.printStackTrace();
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("An error occured.");
             e.printStackTrace();
         }
