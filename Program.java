@@ -48,7 +48,9 @@ public class Program {
             }
         });
 
-        for (int i = inputStreets.size(); i >= 0; i--) {
+        System.out.println(inputStreets.size());
+
+        for (int i = inputStreets.size(); i < 0; i--) {
             if (inputStreets.get(i).getTimesUsed() == 0) {
                 inputStreets.remove(i);
             }
@@ -56,16 +58,21 @@ public class Program {
 
         int third = inputStreets.size() / 3;
 
+        System.out.println(third);
+
         for (int i = 0; i < third; i++) {
             inputStreets.get(i).setBusy(arterial);
+            System.out.println(inputStreets.get(i) + " " + String.valueOf(arterial));
         }
 
         for (int i = third; i < third * 2; i++) {
             inputStreets.get(i).setBusy(collector);
+            System.out.println(inputStreets.get(i) + " " + String.valueOf(collector));
         }
 
         for (int i = third * 2; i < inputStreets.size(); i++) {
             inputStreets.get(i).setBusy(local);
+            System.out.println(inputStreets.get(i) + " " + String.valueOf(local));
         }
 
         for (int i = 0; i < intersections.size(); i++) {
@@ -180,6 +187,8 @@ public class Program {
                 Street street = new Street(streetName, startingIntersection, endingIntersection, timeToTravel);
 
                 intersections.get(endingIntersection).add(streetName);
+
+                inputStreets.add(street);
             }
 
             for (int i = 0; i < numberOfCars; i++) {

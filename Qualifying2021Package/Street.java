@@ -13,7 +13,7 @@ public class Street {
     private HashMap<Car, Integer> carsPresent = new HashMap<Car, Integer>();
 
     private int timesUsed = 0;
-    private int busy;
+    private int busy = 0;
 
     public Street(String name, int startIntersection, int endIntersection, int timeToTravel) {
         this.name = name;
