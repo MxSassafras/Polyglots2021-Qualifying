@@ -21,11 +21,11 @@ public class Program {
     }
 
     public static void Calculation() {
-        Collections.sort(pizzas, new Comparator<Pizza>() {
-            @Override public int compare(Pizza p1, Pizza p2) {
-                return p2.getIngredients().size() - p1.getIngredients().size();
-            }
-        });
+//        Collections.sort(pizzas, new Comparator<Pizza>() {
+//            @Override public int compare(Pizza p1, Pizza p2) {
+//                return p2.getIngredients().size() - p1.getIngredients().size();
+//            }
+//        });
     }
 
     private static String BuildOutputString() {
@@ -89,27 +89,44 @@ public class Program {
         }
     }
 
+    private static String CreateFileName(String name) {
+        int count = 1;
+        boolean exists;
+
+        String stringCount;
+
+        do {
+            stringCount = String.valueOf(count);
+
+            if (stringCount.length() == 1) {
+                stringCount = "0" + stringCount;
+            }
+
+            File tempFile = new File("OutputFiles\\" + name + stringCount + ".txt");
+            exists = tempFile.exists();
+
+            if (exists) {
+                count += 1;
+            }
+        } while (exists);
+
+        return "OutputFiles\\" + name + stringCount + ".txt";
+    }
+
     private static void WriteOutput(String name, String str) {
-        String outputPath = "OutputFiles\\" + name + ".txt";
+        String outputPath = CreateFileName(name);
 
         try {
-            System.out.println(outputPath);
             File file = new File(outputPath);
-
-            if (file.createNewFile()) {
-                System.out.println("File created: " + file.getName());
-            } else {
-                System.out.println("File already exists!");
-            }
 
             try(FileWriter writer = new FileWriter(outputPath)) {
                 writer.write(str);
                 writer.flush();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 System.out.println("An error occured.");
                 e.printStackTrace();
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("An error occured.");
             e.printStackTrace();
         }
