@@ -85,6 +85,7 @@ public class Main {
 
         for (int i = 0; i < usedIntersections.size(); i++) {
             if (usedIntersections.get(i).size() > 0) {
+                Collections.reverse(usedIntersections.get(i));
                 outputString.append(String.valueOf(i)).append("\n");
 
                 int intersectionStreetCount = usedIntersections.get(i).size();
