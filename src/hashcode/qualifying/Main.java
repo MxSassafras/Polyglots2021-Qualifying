@@ -103,7 +103,7 @@ public class Main {
 //                    }
 
                     outputString.append(street.getName()).append(" ").append(String.valueOf(street.getBusy() * stopSignCount));
-                    if (j < intersectionStreetCount-1) {
+                    if (j < intersectionStreetCount) {
                         outputString.append("\n");
                     }
                 }
