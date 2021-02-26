@@ -39,7 +39,7 @@ public class Main {
                 return s2.getTimesUsed() - s1.getTimesUsed();
             }
         });
-        for (int i = inputStreets.size() - 1; i < 0; i--) {
+        for (int i = inputStreets.size() - 1; i == 0; i--) {
             if (inputStreets.get(i).getTimesUsed() == 0) {
                 inputStreets.remove(i);
             }
@@ -70,7 +70,7 @@ public class Main {
     }
 
     private static String BuildOutputString() {
-        String outputString = "";
+        StringBuilder outputString = new StringBuilder();
 
         int countUsedIntersections = 0;
 
@@ -80,14 +80,14 @@ public class Main {
             }
         }
 
-        outputString += String.valueOf(countUsedIntersections) + "\n";
+        outputString.append(String.valueOf(countUsedIntersections)).append("\n");
 
         for (int i = 0; i < usedIntersections.size(); i++) {
             if (usedIntersections.get(i).size() > 0) {
-                outputString += String.valueOf(i) + "\n";
+                outputString.append(String.valueOf(i)).append("\n");
 
                 int intersectionStreetCount = usedIntersections.get(i).size();
-                outputString += String.valueOf(intersectionStreetCount) + "\n";
+                outputString.append(String.valueOf(intersectionStreetCount)).append("\n");
 
                 for (int j = 0; j < intersectionStreetCount; j++) {
                     String streetName = usedIntersections.get(i).get(j);
@@ -101,15 +101,15 @@ public class Main {
 //                        }
 //                    }
 
-                    outputString += street.getName() + " " + String.valueOf(street.getBusy() * stopSignCount);
+                    outputString.append(street.getName()).append(" ").append(String.valueOf(street.getBusy() * stopSignCount));
                     if (j < intersectionStreetCount) {
-                        outputString += "\n";
+                        outputString.append("\n");
                     }
                 }
             }
         }
 
-        return outputString;
+        return outputString.toString();
     }
 
     private static Street GetStreet(String streetName) {
@@ -187,7 +187,7 @@ public class Main {
 
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occured.");
+            System.out.println("An error occurred.");
             e.printStackTrace();
         }
     }
@@ -242,11 +242,11 @@ public class Main {
                 writer.write(str);
                 writer.flush();
             } catch (Exception e) {
-                System.out.println("An error occured.");
+                System.out.println("An error occurred.");
                 e.printStackTrace();
             }
         } catch (Exception e) {
-            System.out.println("An error occured.");
+            System.out.println("An error occurred.");
             e.printStackTrace();
         }
     }
