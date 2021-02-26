@@ -7,11 +7,11 @@ import java.util.*;
 
 public class Main {
     private static int stopSignCount = 1;
-    private static int arterial = 3;
-    private static int collector = 2;
+    private static int arterial = 1;
+    private static int collector = 1;
     private static int local = 1;
 
-    private static boolean flipOrder = true;
+    private static final boolean flipOrder = true;
 
     private static int duration;
     private static int numberOfIntersections;
@@ -19,18 +19,19 @@ public class Main {
     private static int numberOfCars;
     private static int bonusPoints;
 
-    private static ArrayList<Street> inputStreets = new ArrayList<Street>();
-    private static ArrayList<Car> inputCars = new ArrayList<Car>();
-    private static ArrayList<ArrayList<String>> intersections = new ArrayList<ArrayList<String>>();
+    private static final ArrayList<Street> inputStreets = new ArrayList<Street>();
+    private static final ArrayList<Car> inputCars = new ArrayList<Car>();
+    private static final ArrayList<ArrayList<String>> intersections = new ArrayList<ArrayList<String>>();
     private static ArrayList<ArrayList<String>> usedIntersections = new ArrayList<ArrayList<String>>();
     private static HashMap<String, String> usedStreets = new HashMap<String, String>();
 
     public static void main(String[] args) {
-        String fileName = "f";
-        ReadInput(fileName);
-        Calculation();
-        String outputString = BuildOutputString();
-        WriteOutput(fileName, outputString);
+        for (String fileName : args) {
+            ReadInput(fileName);
+            Calculation();
+            String outputString = BuildOutputString();
+            WriteOutput(fileName, outputString);
+        }
     }
 
     public static void Calculation() {
