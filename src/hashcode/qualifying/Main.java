@@ -1,4 +1,4 @@
-import Qualifying2021Package.*;
+package hashcode.qualifying;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,10 +25,9 @@ public class Main {
     private static ArrayList<ArrayList<String>> usedIntersections = new ArrayList<ArrayList<String>>();
     private static HashMap<String, String> usedStreets = new HashMap<String, String>();
 
-    public static void main (String[] args) {
-        String fileName = args[0];
+    public static void main(String[] args) {
+        String fileName = "f";
         ReadInput(fileName);
-
         Calculation();
         String outputString = BuildOutputString();
         WriteOutput(fileName, outputString);
@@ -40,7 +39,7 @@ public class Main {
                 return s2.getTimesUsed() - s1.getTimesUsed();
             }
         });
-        for (int i = inputStreets.size(); i < 0; i--) {
+        for (int i = inputStreets.size() - 1; i < 0; i--) {
             if (inputStreets.get(i).getTimesUsed() == 0) {
                 inputStreets.remove(i);
             }
@@ -124,7 +123,7 @@ public class Main {
     }
 
     private static void ReadInput(String name) {
-        String inputPath = "InputFiles\\" + name + ".txt";
+        String inputPath = ".\\InputFiles\\" + name + ".txt";
         System.out.println(inputPath);
 
         try {
@@ -224,7 +223,7 @@ public class Main {
                 stringCount = "0" + stringCount;
             }
 
-            File tempFile = new File("OutputFiles\\" + name + stringCount + ".txt");
+            File tempFile = new File(".\\OutputFiles\\" + name + stringCount + ".txt");
             exists = tempFile.exists();
 
             if (exists) {
@@ -232,15 +231,13 @@ public class Main {
             }
         } while (exists);
 
-        return "OutputFiles\\" + name + stringCount + ".txt";
+        return ".\\OutputFiles\\" + name + stringCount + ".txt";
     }
 
     private static void WriteOutput(String name, String str) {
         String outputPath = CreateFileName(name);
 
         try {
-            File file = new File(outputPath);
-
             try(FileWriter writer = new FileWriter(outputPath)) {
                 writer.write(str);
                 writer.flush();
